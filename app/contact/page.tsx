@@ -24,7 +24,9 @@ const Page = () => {
                 </TextFade>
 
                 {/* Konten Section */}
-                <div className="flex flex-col md:flex-row w-full items-center gap-8 py-8">
+                <TextFade
+                    direction="up"
+                    className="flex flex-col md:flex-row w-full items-center gap-8 py-8">
                     <div className="flex flex-col gap-4">
                         <p className="text-2xl font-bold text-white">Hubungi Saya</p>
                         <p className="text-lg font-light text-white">
@@ -53,11 +55,11 @@ const Page = () => {
                                     rel="noopener noreferrer"
                                 >
                                     <Image
-                                        src={instagram} 
+                                        src={instagram}
                                         alt="Instagram Logo"
                                         width={32}
                                         height={32}
-                                        className="bg-white rounded-sm bg-opacity-20" 
+                                        className="bg-white rounded-sm bg-opacity-20"
                                     />
                                 </Link>
                             </li>
@@ -68,7 +70,7 @@ const Page = () => {
                                     rel="noopener noreferrer"
                                 >
                                     <Image
-                                        src={tiktok} 
+                                        src={tiktok}
                                         alt="Instagram Logo"
                                         width={32}
                                         height={32}
@@ -83,7 +85,7 @@ const Page = () => {
                                     rel="noopener noreferrer"
                                 >
                                     <Image
-                                        src={linkedin} 
+                                        src={linkedin}
                                         alt="Instagram Logo"
                                         width={32}
                                         height={32}
@@ -93,7 +95,7 @@ const Page = () => {
                             </li>
                         </ul>
                     </div>
-                </div>
+                </TextFade>
             </main>
         </>
     );
