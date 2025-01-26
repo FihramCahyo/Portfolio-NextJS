@@ -121,7 +121,7 @@ const page = () => {
                         <Button_v5
                             type="button"
                             Icon={<MdFileDownload />}
-                            onClick={() => window.open('https://drive.google.com/file/d/1bP-iUrNEC-iNGQPHH1r-fLb1LHhq7E3t/view', '_blank')}
+                            onClick={() => window.open('https://drive.google.com/file/d/1Sg1ygE9HCR9dDXblC17CeXUx3zhep3ui/view?usp=sharing', '_blank')}
                             className="flex items-center justify-center w-full sm:w-[30%] rounded-full text-lg mt-4">
                             Unduh CV
                         </Button_v5>

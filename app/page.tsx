@@ -35,7 +35,7 @@ export default function Home() {
               </div>
 
 
-              <Button_v5 type="button" onClick={() => router.push('/profile')} className="flex items-center justify-center w-full sm:w-[30%] rounded-full text-lg mt-4">
+              <Button_v5 type="button" onClick={() => router.push('/about')} className="flex items-center justify-center w-full sm:w-[30%] rounded-full text-lg mt-4">
                 Lihat Profil
               </Button_v5>
             </TextFade>
