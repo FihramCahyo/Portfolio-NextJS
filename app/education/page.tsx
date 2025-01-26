@@ -55,7 +55,7 @@ const page = () => {
                 {/* Konten Section */}
                 <div className="flex flex-col items-center justify-center w-full">
                     {/* Timeline Section */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full py-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full py-12 mt-12 sm:mt-0">
                         {timelineData.map((item, index) => (
                             <motion.div
                                 key={index}
@@ -65,7 +65,7 @@ const page = () => {
                                 className="relative flex items-start gap-4 flex-col md:flex-row md:items-center"
                             >
                                 {/* Timeline Content */}
-                                <div className="bg-gray-800 p-6 rounded-lg shadow-lg md:w-[calc(100%-4rem)] md:mt-0">
+                                <div className="bg-gray-800 p-6 rounded-lg shadow-lg md:w-[calc(100%-4rem)]">
                                     <h4 className="text-lg md:text-xl font-semibold text-white">
                                         {item.title} <span className="text-gray-400">— {item.organization}</span>
                                     </h4>
@@ -75,7 +75,7 @@ const page = () => {
                                     <div className="absolute -left-2 top-0 bg-[#F96E2A] w-1 h-full"></div>
                                 </div>
                                 
-                                <div className="absolute -left-16 top-[-2.5rem] md:-left-4 text-gray-400 text-sm flex items-center gap-2">
+                                <div className="absolute -left-5 top-[-2.5rem] md:-left-4 text-gray-400 text-sm flex items-center gap-2">
                                     {item.icon}
                                     <span>{item.year}</span>
                                 </div>
