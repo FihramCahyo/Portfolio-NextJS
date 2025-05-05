@@ -5,9 +5,12 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import cms from "@/public/image/cms-mantap.png";
+import cms_mantap from "@/public/image/cms-mantap.png";
+import cms_portal from "@/public/image/cms-portal.png";
 import site_google from "@/public/image/yayasan-binarpekerti.png";
 import smp from "@/public/image/smp-ubm.png";
+import manajemen_akun from "@/public/image/manajemen-akun-siswa.png";
+import { useState } from "react";
 
 type CardContent = {
   title: string;
@@ -33,11 +36,27 @@ const cardContent2: CardContent = {
 };
 
 const cardContent3: CardContent = {
-  title: "CMS Portal MANTAP PPDB",
+  title: "CMS MANTAP PPDB",
   description:
     "CMS ini dibangun menggunakan Laravel dan Filament, memudahkan pengelolaan produk yang akan ditawarkan ke lembaga pendidikan. Teknologi ini memungkinkan pengelolaan data menjadi lebih mudah.",
-  image: cms,
+  image: cms_mantap,
   link: "https://mantap-ppdb-be.demo.or.id/",
+};
+
+const cardContent4: CardContent = {
+  title: "CMS PORTAL PPDB",
+  description:
+    "CMS ini dibangun menggunakan Laravel dan Filament, CMS Portal PPDB adalah sistem manajemen konten yang dirancang khusus untuk menyajikan informasi pendaftaran peserta didik baru secara online.",
+  image: cms_portal,
+  link: "https://dev-portal-api-plb.mantap-ppdb.id/",
+};
+
+const cardContent5: CardContent = {
+  title: "Sistem Manajemen Akun Siswa",
+  description:
+    "Saya mengembangkan sistem manajemen akun untuk pendaftaran siswa baru menggunakan ReactJS, dengan fitur validasi NIK untuk mencegah pendaftaran ganda dan memastikan akurasi data secara otomatis.",
+  image: manajemen_akun,
+  link: "https://spmb-smp.demo.or.id/manajemen/akun-siswa",
 };
 
 const CardBody = ({ title, description, className = "" }: {
@@ -62,9 +81,14 @@ const CardWithImage = ({
   image,
   link,
 }: CardContent) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="rounded-xl dark:bg-zinc-950 bg-zinc-50 overflow-hidden p-2 border pb-3">
-      <div className="relative aspect-video">
+      <div
+        className="relative aspect-video cursor-pointer group"
+        onClick={() => setIsModalOpen(true)}
+      >
         <Image
           fill
           className="rounded-xl shadow-[0px_0px_10px_#A1A1AA] dark:shadow-[0px_0px_12px_rgb(39,39,42,0.7)]"
@@ -73,7 +97,13 @@ const CardWithImage = ({
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
           alt={title}
         />
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center rounded-lg">
+          <span className="text-white opacity-0 group-hover:opacity-100 text-base font-bold transition-opacity duration-300">
+            Lihat Gambar
+          </span>
+        </div>
       </div>
+
       <CardBody
         title={title}
         description={description}
@@ -84,6 +114,25 @@ const CardWithImage = ({
           <Link href={link} target="_blank">Buka Projek</Link>
         </Button>
       </div>
+
+      {/* Modal untuk zoom gambar */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 cursor-pointer"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div className="relative w-full max-w-5xl h-[90vh]">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+              priority
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -104,28 +153,42 @@ const Page = () => {
       </TextFade>
 
       {/* Konten Section */}
-      <div className="flex flex-col md:flex-row w-full items-center gap-8 py-8">
+      <div className="flex flex-col w-full items-center gap-8 py-8">
         <TextFade
           direction="up"
-          className="flex flex-col sm:flex-row w-full items-center gap-8 sm:justify-center mt-12 sm:mt-0 ">
-          <CardWithImage
-            title={cardContent1.title}
-            description={cardContent1.description}
-            image={cardContent1.image}
-            link={cardContent1.link}
-          />
-          <CardWithImage
-            title={cardContent2.title}
-            description={cardContent2.description}
-            image={cardContent2.image}
-            link={cardContent2.link}
-          />
-          <CardWithImage
-            title={cardContent3.title}
-            description={cardContent3.description}
-            image={cardContent3.image}
-            link={cardContent3.link}
-          />
+          className="w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <CardWithImage
+              title={cardContent1.title}
+              description={cardContent1.description}
+              image={cardContent1.image}
+              link={cardContent1.link}
+            />
+            <CardWithImage
+              title={cardContent2.title}
+              description={cardContent2.description}
+              image={cardContent2.image}
+              link={cardContent2.link}
+            />
+            <CardWithImage
+              title={cardContent3.title}
+              description={cardContent3.description}
+              image={cardContent3.image}
+              link={cardContent3.link}
+            />
+            <CardWithImage
+              title={cardContent4.title}
+              description={cardContent4.description}
+              image={cardContent4.image}
+              link={cardContent4.link}
+            />
+            <CardWithImage
+              title={cardContent5.title}
+              description={cardContent5.description}
+              image={cardContent5.image}
+              link={cardContent5.link}
+            />
+          </div>
         </TextFade>
       </div>
     </div>
