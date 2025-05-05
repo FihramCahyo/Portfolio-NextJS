@@ -8,9 +8,12 @@ import php from "@/public/image/php.png";
 import laravel from "@/public/image/laravel.svg";
 import tailwind from "@/public/image/tailwind-css.svg";
 import nextjs from "@/public/next.svg";
-import git from "@/public/image/Git-Icon.png";
+// import git from "@/public/image/Git-Icon.png";
 import filament from "@/public/image/filament.png";
 import livewire from "@/public/image/Livewire.png";
+import html from "@/public/image/HTML5.png";
+import reactjs from "@/public/image/React.png";
+import vuejs from "@/public/image/Vue.js.png";
 
 type Skill = {
     name: string;
@@ -20,24 +23,29 @@ type Skill = {
 
 const skills: Skill[] = [
     {
+        name: "HTML",
+        logo: html,
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    },
+    {
         name: "JavaScript",
         logo: javascript,
         link: "https://www.javascript.com/",
     },
     {
+        name: "ReactJS",
+        logo: reactjs,
+        link: "https://reactjs.org/",
+    },
+    {
+        name: "VueJS",
+        logo: vuejs,
+        link: "https://vuejs.org/",
+    },
+    {
         name: "Next.js",
         logo: nextjs,
         link: "https://nextjs.org/",
-    },
-    {
-        name: "Tailwind CSS",
-        logo: tailwind,
-        link: "https://tailwindcss.com/",
-    },
-    {
-        name: "Git",
-        logo: git,
-        link: "https://git-scm.com/",
     },
     {
         name: "PHP",
@@ -58,7 +66,17 @@ const skills: Skill[] = [
         name: "Livewire",
         logo: livewire,
         link: "https://livewire.laravel.com/",
-    }
+    },
+    {
+        name: "Tailwind CSS",
+        logo: tailwind,
+        link: "https://tailwindcss.com/",
+    },
+    // {
+    //     name: "Git",
+    //     logo: git,
+    //     link: "https://git-scm.com/",
+    // },
 ];
 
 const CardWithLogo = ({ name, logo, link }: Skill) => {
@@ -99,7 +117,7 @@ const Page = () => {
                 <div className="flex flex-col md:flex-row w-full justify-center items-center gap-8 py-8">
                     <TextFade
                         direction="up"
-                        className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">
+                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
                         {skills.map((skill) => (
                             <CardWithLogo key={skill.name} {...skill} />
                         ))}

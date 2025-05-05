@@ -12,12 +12,12 @@ import { MdFileDownload } from "react-icons/md";
 const page = () => {
     const cardContent1 = {
         title: "1 Tahun Pengalaman Kerja",
-        description: "Menggunakan Teknologi Laravel, Livewire, dan Filament",
+        description: "Menggunakan Teknologi HTML, JS, PHP, Laravel, Livewire, Filament, VueJS dan ReatcJS",
     };
 
     const cardContent2 = {
-        title: "3 Projek yang telah selesai",
-        description: "Website Sekolah dan CMS Portal MANTAP PPDB 2025",
+        title: "5 Projek yang telah selesai",
+        description: "Website Sekolah, CMS MANTAP PPDB, CMS Portal PPDB, dan Sistem Manajemen Akun Siswa",
     };
 
     const CardBody = ({
